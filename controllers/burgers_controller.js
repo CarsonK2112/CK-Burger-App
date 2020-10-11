@@ -16,21 +16,21 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/cats", function(req, res) {
-  sandwich.create(["name", "sleepy"], [req.body.name, req.body.sleepy], function(result) {
+router.post("/api/burgers", function(req, res) {
+  sandwich.create(["name", "eaten"], [req.body.name, req.body.eaten], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
-router.put("/api/cats/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
 
   sandwich.update(
     {
-      sleepy: req.body.sleepy
+      eaten: req.body.eaten
     },
     condition,
     function(result) {
