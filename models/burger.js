@@ -1,6 +1,6 @@
 var orm = require("../config/orm.js");
 
-var sandwich = {
+var burger = {
   selectAll: function(cb) {
     orm.selectAll("*", "burgers", function(res) {
       cb(res);
@@ -9,16 +9,16 @@ var sandwich = {
   },
   // The variables cols and vals are arrays.
   insertOne: function(cols, vals, cb) {
-    orm.insertOne("sandwich", cols, vals, function(res) {
+    orm.insertOne("burger", cols, vals, function(res) {
       cb(res);
     });
   },
   updateOne: function(objColVals, condition, cb) {
-    orm.update("sandwich", objColVals, condition, function(res) {
+    orm.update("burger", objColVals, condition, function(res) {
       cb(res);
     });
   }
 };
 
 // Export the database functions for the controller (catsController.js).
-module.exports = sandwich;
+module.exports = burger;
